@@ -17,9 +17,9 @@ function App() {
         <button >Search</button>
       </div>
       <script href="mangaStats.js"></script>
-      <script href="getChapters.js"></script>
+      {/* <script href="getChapters.js"></script> */}
       {/* <script href="addToList.js"></script> */}
-      <script href="findManga.js"></script>
+      {/* <script href="findManga.js"></script> */}
 
     </div>
   );
