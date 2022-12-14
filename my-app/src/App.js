@@ -2,12 +2,13 @@
 // import React from 'react';
 // import axios from 'axios';
 import './components/mangaStats';
-// import logo from './logo.svg';
+// import './components/rateManga';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      {/* <getMangaStats/> */}
       <h1>Manga Rater</h1>
       <div>
         <input type="text" placeholder="Enter Manga Name..."></input>
