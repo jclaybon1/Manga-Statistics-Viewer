@@ -1,13 +1,18 @@
 // import React, { Component } from 'react';
 // import React from 'react';
-// import axios from 'axios';
-import './components/mangaStats';
+import axios from 'axios';
+import Parent from './components/mangaStats';
 import './components/getChapters';
 import './components/findManga'
 // import './components/rateManga';
 import './App.css';
 
 function App() {
+
+  
+
+
+
   return (
     <div className="App">
       {/* <getMangaStats/> */}
@@ -16,7 +21,8 @@ function App() {
         <input type="text" placeholder="Enter Manga Name..."></input>
         <button >Search</button>
       </div>
-      <script href="mangaStats.js"></script>
+      <Parent/>
+      {/* <script href="mangaStats.js"></script> */}
       {/* <script href="getChapters.js"></script> */}
       {/* <script href="addToList.js"></script> */}
       {/* <script href="findManga.js"></script> */}

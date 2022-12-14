@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function Parent(){
     //get data from API
+    const [stats, getStats] = useState('');
+
+    const mangaID = '0301208d-258a-444a-8ef7-66e433d801b1';
     const baseUrl = 'https://api.mangadex.org';
+
+    useEffect(() => {
+        getMangaStats();
+    }, []);
+
     const getMangaStats = () => {
         axios.get(`${baseUrl}/statistics/manga/${mangaID}`)
         .then((response) => {
-            const { rating, follows } = resp.data.statistics[mangaID];
-
+            // get Data from API
+            const { rating, follows } = response.data.statistics[mangaID];
+            //add data to state
+            getStats({ rating, follows });
         })
+        .catch(error => console.error(`Error: ${error}`));
     }
+        return(
+            <mangaStats stats={stats}/>
+        )
 
 }
 
