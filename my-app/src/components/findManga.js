@@ -1,5 +1,3 @@
-
-
 const title = 'Kanojyo to Himitsu to Koimoyou';
 
 const axios = require('axios');
