@@ -2,8 +2,9 @@
 // import React from 'react';
 // import axios from 'axios';
 import './components/mangaStats';
-import './components/getChapters';
-import './components/findManga'
+// import './components/getChapters';
+// import './components/findManga';
+// import './components/searchByTag';
 // import './components/rateManga';
 import './App.css';
 
@@ -15,13 +16,15 @@ function App() {
       <div>
         <input type="text" placeholder="Enter Manga Name..."></input>
         <button >Search</button>
+        <ul>
+        </ul>
       </div>
       {/* <Parent/> */}
       <script href="mangaStats.js"></script>
       {/* <script href="getChapters.js"></script> */}
       {/* <script href="addToList.js"></script> */}
       {/* <script href="findManga.js"></script> */}
-
+      {/* <script href="searchByTag.js"></script> */}
     </div>
   );
 }
