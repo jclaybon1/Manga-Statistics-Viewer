@@ -12,7 +12,7 @@ import './App.css';
 //   constructor(props){
 //     super(props);
 //     this.state = { ratings: [] };
-//     this.showRating = this.showRating.bind(this);
+//     this.findManga = this.findManga.bind(this);
 //   };
 
 //   componentDidMount() {
@@ -29,10 +29,7 @@ function App(){
         <ul>
         </ul>
       </div>
-      {/* <Parent/> */}
-      <script href="mangaStats.js">
-
-      </script>
+      <script href="mangaStats.js"></script>
       <script href="getChapters.js"></script>
       {/* <script href="addToList.js"></script> */}
       <script href="findManga.js"></script>
