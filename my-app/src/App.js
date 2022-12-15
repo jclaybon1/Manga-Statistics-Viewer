@@ -2,13 +2,23 @@
 // import React from 'react';
 // import axios from 'axios';
 import './components/mangaStats';
-// import './components/getChapters';
-// import './components/findManga';
+import './components/getChapters';
+import './components/findManga';
 // import './components/searchByTag';
 // import './components/rateManga';
 import './App.css';
 
-function App() {
+// class App extends Component {
+//   constructor(props){
+//     super(props);
+//     this.state = { ratings: [] };
+//     this.showRating = this.showRating.bind(this);
+//   };
+
+//   componentDidMount() {
+
+//   }
+function App(){
   return (
     <div className="App">
       {/* <getMangaStats/> */}
@@ -20,10 +30,12 @@ function App() {
         </ul>
       </div>
       {/* <Parent/> */}
-      <script href="mangaStats.js"></script>
-      {/* <script href="getChapters.js"></script> */}
+      <script href="mangaStats.js">
+
+      </script>
+      <script href="getChapters.js"></script>
       {/* <script href="addToList.js"></script> */}
-      {/* <script href="findManga.js"></script> */}
+      <script href="findManga.js"></script>
       {/* <script href="searchByTag.js"></script> */}
     </div>
   );

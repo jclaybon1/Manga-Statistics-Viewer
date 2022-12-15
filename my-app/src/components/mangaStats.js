@@ -1,11 +1,15 @@
 // import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import React, { Component } from 'react';
+// import axios from 'axios';
+// import React, { Component } from 'react';
 
-class getMangaStats extends Component {
+// class getMangaStats extends Component {
+//     contructor(props) {
+//         super(props);
+//         this.state = { };
 
+//     }
     const mangaID = '0301208d-258a-444a-8ef7-66e433d801b1';
-    // const axios = require('axios');
+    const axios = require('axios');
     
     const baseUrl = 'https://api.mangadex.org';
     
@@ -23,17 +27,17 @@ class getMangaStats extends Component {
         );
     })();
 
-    render() {
-        return (
-            <article id="{this.props.id}" className="todo">
-                <button className="check"></button>
-                <p>{this.props.text}</p>
-            </article>
-        );
-    }
- }
+//     render() {
+//         return (
+//             <article id="{this.props.id}" className="todo">
+//                 <button className="check"></button>
+//                 <p>{this.props.text}</p>
+//             </article>
+//         );
+//     }
+// }
  
- export default getMangaStats;
+//  export default getMangaStats;
 
 
 
