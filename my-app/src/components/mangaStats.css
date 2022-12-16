@@ -48,10 +48,11 @@
     max-height: 394px;
     margin: 8px;
   }
-  .c-manga-search .list-container .list .list-card .card-img {
+  .c-manga-search .list-container .list .list-card{
     width: inherit;
     height: 344px;
     padding: 2px;
+
   }
   .c-manga-search .list-container .list .list-card .card-title {
     /* color: black; */
@@ -177,5 +178,34 @@ input:checked + .tab-label::after {
 input:checked ~ .tab-content {
   max-height: 100vh;
   padding: 1em;
+}
+
+
+.card-stuff{
+  max-width: 250px;
+  border: 1px solid rgb(121, 121, 121);
+  margin-bottom: 20px;
+  border-radius: 15px;
+  /* object-fit: contain; */
+}
+.card-img{
+  /* border-radius: 15px; */
+  width: 250px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
+}
+.inputLabel{
+  width:100%;
+}
+.inputSearch{
+ 
+  width: 500px;
+
+}
+.buttonSearch{
+  
+  width: 500px;
+
 }
 

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./mangaStats.css";
+import { Card } from "react-bootstrap";
+// import Card from "react-bootstrap/Card";
 
 export function Stats({ dataParentToChild }) {
-//   const [search, setSearch] = useState(" ");
+  //   const [search, setSearch] = useState(" ");
   const [mangas, setMangas] = useState([]);
 
   const baseUrl = "https://api.mangadex.org";
@@ -63,10 +65,10 @@ export function Stats({ dataParentToChild }) {
     fetchData();
   }, [dataParentToChild]);
 
-//   function handleSubmit(event) {
-//     setSearch(state.current.value);
-//     event.preventDefault();
-//   }
+  //   function handleSubmit(event) {
+  //     setSearch(state.current.value);
+  //     event.preventDefault();
+  //   }
 
   return (
     <div>
@@ -78,10 +80,19 @@ export function Stats({ dataParentToChild }) {
               mangas.map((manga) => {
                 return (
                   <div>
-                    <img src={manga.url}></img>
-                    <h4>{manga.title}</h4>
-                    <h4>rating: {manga.rating}</h4>
-                    <h4>follows: {manga.follows}</h4>
+                    <Card className="card-stuff" border="primary">
+                      <Card.Img variant="top" className="card-img" src={manga.url}></Card.Img>
+                      <Card.Body>
+                        <Card.Title className="card-title">
+                          {manga.title}
+                        </Card.Title>
+                        <Card.Text className="card-title" >
+                          <div>rating: {manga.rating}</div>
+                          <div>follows: {manga.follows}</div>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  
                   </div>
                 );
               })

@@ -16,11 +16,12 @@ export function Search() {
     <div>
       <div className="c-manga-search">
         <form onSubmit={handleSubmit} id="searchForm">
-          <label>
+          <label className="inputLabel">
             <h4>Enter Manga Title Here:</h4>
-            <input type="text" ref={state} />
           </label>
-          <input type="submit" value="Search for Manga..." id="inputSearch" />
+          <input  className="inputSearch"type="text" ref={state} />
+
+          <button className="buttonSearch"><span>Search for Manga...</span></button>
         </form>
         <Stats dataParentToChild = {search}/> 
 

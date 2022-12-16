@@ -22,7 +22,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-
 }
 
 .App-link {
@@ -40,48 +39,49 @@
 
 /*  */
 
-      /* Style the container element */
-      .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-      }
+/* Style the container element */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
-      /* Style the form */
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 500px;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-      }
+/* Style the form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
 
-      /* Style the form heading */
-      h1 {
-        margin: 0 0 20px 0;
-        font-size: 20px;
-        font-weight: bold;
-      }
+/* Style the form heading */
+h1 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
 
-      /* Style the form fields */
-      input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
+/* Style the form fields */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-      /* Style the submit button */
-      button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        background-color: #333;
-        color: #fff;
-        font-weight: bold;
-        cursor: pointer;
-      }
+/* Style the submit button */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  /* position: ; */
+}
