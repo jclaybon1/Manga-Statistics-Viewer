@@ -16,7 +16,7 @@ export function Container() {
   }, [theme]);
   return (
     <div className={`App ${theme}`}>
-            <button onClick={toggleTheme}>Toggle Theme</button>
+            <button className="theme" onClick={toggleTheme}>Toggle Theme</button>
       <Search />
           
     </div>
