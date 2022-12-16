@@ -1,141 +1,160 @@
-// import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
-// import React, { Component } from 'react';
+import React, { useState, useEffect, useRef } from 'react'
+import axios from 'axios'
+import './SearchManga.css';
+import { Form, Card } from 'react-bootstrap';
 
-// class getMangaStats extends Component {
-//     contructor(props) {
-//         super(props);
-//         this.state = { };
+var url = "https://api.mangadex.org/manga";
+const imgURL = "https://mangadex.org/covers/";
+// const title = "?title=";
+// const limit = "&limit=";
+// const includeCoverArt = "&includes[]=cover_art";
+// const limitNum = 12;
 
-//     }
-    const mangaID = '0301208d-258a-444a-8ef7-66e433d801b1';
-    const axios = require('axios');
-    
-    const baseUrl = 'https://api.mangadex.org';
-    
-    (async () => {
-        const resp = await axios({
+
+// import React, { useState } from 'react';
+
+export function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [search, setSearch] = useState(" ");
+  const [mangas, setMangas] = useState([]);
+//   const title = "?title=";
+    // const limit = "&limit=";
+    // const includeCoverArt = "&includes[]=cover_art";
+    // const limitNum = 12;
+  const baseUrl = 'https://api.mangadex.org';
+//   const state ={value: ''};
+  const state = useRef();
+
+//   let requestHttp = url + title + search.trim() + limit + String(limitNum) + includeCoverArt;
+
+  useEffect( () => {
+    // alert(search);
+    const fetchData = async () => {
+        // alert(search);
+        const resp1 = await axios({
             method: 'GET',
-            url: `${baseUrl}/statistics/manga/${mangaID}`
+            url: `${baseUrl}/manga`,
+            params: {
+                title: search,
+                limit: 12,
+                "includes[]": 'cover_art'
+
+            }
+        });     
+        // console.log(resp1);
+        let mangaResults = resp1.data.data.map((mangaResult) => {
+            let fileName = mangaResult.relationships.find((relationship) => {
+                return relationship.type === "cover_art";
+            })?.attributes?.fileName;
+            // let coverArt = mangaResult.relationships.find((relationship) => {
+            //     return relationship.type === "cover_art";
+            // });
+            // console.log(fileName);
+            let coverURL = imgURL + mangaResult.id + "/" + fileName + ".256.jpg";
+            // console.log(coverURL);
+            console.log(mangaResult.attributes.title);
+            
+            return { id: mangaResult.id, url: coverURL, manga: mangaResult, title: mangaResult.attributes.title.en, rating: "", follows: ""};
         });
-        const { rating, follows } = resp.data.statistics[mangaID];
-    
-        console.log(
-            'Mean Rating:', rating.average, '\n' +
-            'Bayesian Rating:', rating.bayesian, '\n' +
-            'Follows:', follows
-        );
-    })();
+        for (const x in mangaResults){
+            // console.log(x.id);
+            const resp = await axios({
+                method: 'GET',
+                url: `${baseUrl}/statistics/manga/${mangaResults[x].id}`
+            });
+        
+            const { rating, follows } = resp.data.statistics[mangaResults[x].id];
+        
+            console.log(
+                'Mean Rating:', rating.average, '\n' +
+                'Bayesian Rating:', rating.bayesian, '\n' +
+                'Follows:', follows
+            );
 
-//     render() {
-//         return (
-//             <article id="{this.props.id}" className="todo">
-//                 <button className="check"></button>
-//                 <p>{this.props.text}</p>
-//             </article>
-//         );
-//     }
-// }
- 
-//  export default getMangaStats;
+            mangaResults[x].rating = rating.average;
+            mangaResults[x].follows = follows;
+
+            
+        }
+
+        setMangas(mangaResults);
+        console.log(mangas);
+        
 
 
+        // return resp1;
+        // const data = fetchData().toPromise();
 
+        // console.log(data);
+        
 
-// function mangaStats() {
-//     const [mangaStats, setMangaStats] = useState([]);
-//     const mangaID = '0301208d-258a-444a-8ef7-66e433d801b1';
-//     const baseUrl = 'https://api.mangadex.org';
-
-//     useEffect(() => {
-//       mangaStatsData();
-//     }, []);
+    }
+    fetchData();
   
-//     const mangaStatsData = async () => {
-//       const { rating, follows } = await axios.get(`${baseUrl}/statistics/manga/${mangaID}`);
-//       setMangaStats({ rating, follows});
-
-//     };
-  
-//     return (
-//       <div className='mangaStats'>
-//         {mangaStats.map((mangaStats) => (
-//           <div key={mangaStats.mangaID}>
-//             <h5>{mangaStats.rating.average}</h5>
-//             <h6>{mangaStats.rating.follows}</h6>
-//           </div>
-//         ))}
-//       </div>
-//     );
-//   }
-  
-//   export default mangaStats;
+}, [search]);
 
 
-
-// function displayMangaStats(){
-//     //get data from API
-//     const [stats, getStats] = useState('');
-
-//     const mangaID = '0301208d-258a-444a-8ef7-66e433d801b1';
-//     const baseUrl = 'https://api.mangadex.org';
-
-//     useEffect(() => {
-//         getMangaStats();
-//     }, []);
-
-//     const getMangaStats = () => {
-//         axios.get(`${baseUrl}/statistics/manga/${mangaID}`)
-//         .then((response) => {
-//             // get Data from API
-//             const { rating, follows } = response.data.statistics[mangaID];
-//             //add data to state
-//             getStats({ rating, follows });
-//         })
-//         .catch(error => console.error(`Error: ${error}`));
-//     }
-//         return(
-//             <mangaStats stats={stats}/>
-//         )
-
-// }
-
-// export default displayMangaStats;
+    function handleSubmit(event){
+        setSearch(state.current.value);
+        event.preventDefault();
+    }
 
 
+  return (
 
-// const qs = require("querystring");
-// const http = require("https");
+       
+    <div>
+        <div className='c-manga-search'>
+            {/* <Form.Control type="text" onChange={event => { setSearch(event.target.value);  }} ></Form.Control> */}
+            <form onSubmit={handleSubmit}>                
+            <label>
+                <input type="text" ref={state}   />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
 
-// const options = {
-// 	"method": "POST",
-// 	"hostname": "anilistmikilior1v1.p.rapidapi.com",
-// 	"port": null,
-// 	"path": "/createThread",
-// 	"headers": {
-// 		"content-type": "application/x-www-form-urlencoded",
-// 		"X-RapidAPI-Key": "978b5edd6amsh41d5b48cd4cedf4p1aad2fjsn030c4a6b5b61",
-// 		"X-RapidAPI-Host": "Anilistmikilior1V1.p.rapidapi.com",
-// 		"useQueryString": true
-// 	}
-// };
+            <div className='list-container'>
+                <div className='list'>
+                    {
+                        mangas.length ?
+                            mangas.map(manga => {
+                                // return (
+                                //     // <Card className='list-card' key={manga.id}>
+                                //     //     <Card.Img className="card-img"  src={manga.url}></Card.Img>
+                                //     //     <Card.Title className='card-title'>{Object.values(manga.manga.attributes.title)[0] ? Object.values(manga.manga.attributes.title)[0] : "Error"}</Card.Title>
+                                //     // </Card> 
+                                // );
+                                return(
+                                    <div>
+                                        <img src={manga.url}></img>
+                                        <h4>{manga.title}</h4>
+                                        <h4>rating: {manga.rating}</h4>
+                                        <h4>follows: {manga.follows}</h4>
 
-// const req = http.request(options, function (res) {
-// 	const chunks = [];
+                                    </div>
+                                )
+                            }) :
+                            <div>No Mangas Found.</div>
+                    }
+                </div>
+            </div>
 
-// 	res.on("data", function (chunk) {
-// 		chunks.push(chunk);
-// 	});
+        </div >
 
-// 	res.on("end", function () {
-// 		const body = Buffer.concat(chunks);
-// 		console.log(body.toString());
-// 	});
-// });
+        
+     
+    </div>
 
-// req.write(qs.stringify({body: '<REQUIRED>', accessToken: '<REQUIRED>', title: '<REQUIRED>'}));
-// req.end();
+
+    // <div className='c-manga-search'>
+    //     <Form.Control type="text" onChange={event => { setSearch(event.target.value);  }} ></Form.Control>
+    // </div >
+
+  );
+}
 
 
 
 
+
+   
