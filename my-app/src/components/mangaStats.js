@@ -1,17 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
-import './SearchManga.css';
-import { Form, Card } from 'react-bootstrap';
+import './mangaStats.css';
 
-var url = "https://api.mangadex.org/manga";
-const imgURL = "https://mangadex.org/covers/";
+export function getChapters(){
+
+}
 
 
-export function Example() {
+
+// 
+
+
+export function Search() {
   const [search, setSearch] = useState(" ");
   const [mangas, setMangas] = useState([]);
 
   const baseUrl = 'https://api.mangadex.org';
+  const imgURL = "https://mangadex.org/covers/";
   const state = useRef();
 
 
@@ -29,28 +34,22 @@ export function Example() {
 
             }
         });     
-        // console.log(resp1);
         let mangaResults = resp1.data.data.map((mangaResult) => {
             let fileName = mangaResult.relationships.find((relationship) => {
                 return relationship.type === "cover_art";
             })?.attributes?.fileName;
             
-            // console.log(fileName);
             let coverURL = imgURL + mangaResult.id + "/" + fileName + ".256.jpg";
-            // console.log(coverURL);
-            console.log(mangaResult.attributes.title);
             
             return { id: mangaResult.id, url: coverURL, manga: mangaResult, title: mangaResult.attributes.title.en, rating: "", follows: ""};
         });
         for (const x in mangaResults){
-            // console.log(x.id);
             const resp = await axios({
                 method: 'GET',
                 url: `${baseUrl}/statistics/manga/${mangaResults[x].id}`
             });
         
             const { rating, follows } = resp.data.statistics[mangaResults[x].id];
-        
             console.log(
                 'Mean Rating:', rating.average, '\n' +
                 'Bayesian Rating:', rating.bayesian, '\n' +
@@ -84,14 +83,13 @@ export function Example() {
        
     <div>
         <div className='c-manga-search'>
-            {/* <Form.Control type="text" onChange={event => { setSearch(event.target.value);  }} ></Form.Control> */}
-            <form onSubmit={handleSubmit}>                
-            <label>
+            <form onSubmit={handleSubmit} id="searchForm">                
+                <label>
+                <h4>Enter Manga Title Here:</h4>
                 <input type="text" ref={state}   />
                 </label>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Search for Manga..." id="inputSearch" />
             </form>
-
             <div className='list-container'>
                 <div className='list'>
                     {
@@ -108,11 +106,10 @@ export function Example() {
                                     </div>
                                 )
                             }) :
-                            <div>No Mangas Found.</div>
+                            <div id="noneFound">No Mangas Found.</div>
                     }
                 </div>
             </div>
-
         </div >
 
         
@@ -126,4 +123,5 @@ export function Example() {
 
 
 
-   
+
+    
