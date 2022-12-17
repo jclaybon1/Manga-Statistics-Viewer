@@ -2,10 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./mangaStats.css";
 import { Card } from "react-bootstrap";
-// import Card from "react-bootstrap/Card";
 
 export function Stats({ dataParentToChild }) {
-  //   const [search, setSearch] = useState(" ");
   const [mangas, setMangas] = useState([]);
 
   const baseUrl = "https://api.mangadex.org";
@@ -65,30 +63,28 @@ export function Stats({ dataParentToChild }) {
     fetchData();
   }, [dataParentToChild]);
 
-  //   function handleSubmit(event) {
-  //     setSearch(state.current.value);
-  //     event.preventDefault();
-  //   }
-
   return (
     <div>
       <div className="c-manga-search">
-        {/* <h4>{dataParentToChild}</h4> */}
         <div className="list-container">
           <div className="list">
             {mangas.length ? (
               mangas.map((manga) => {
                 return (
-                  <div>
+                  <div >
                     <Card className="card-stuff" border="primary">
                       <Card.Img variant="top" className="card-img" src={manga.url}></Card.Img>
                       <Card.Body>
                         <Card.Title className="card-title">
-                          {manga.title}
+                          <div className="cardStatistics">
+                            {manga.title}
+                          </div>
                         </Card.Title>
                         <Card.Text className="card-title" >
-                          <div>rating: {manga.rating}</div>
-                          <div>follows: {manga.follows}</div>
+                          <div className="cardStatistics">
+                            <div>Rating: {manga.rating}</div>
+                            <div>Followers: {manga.follows}</div>
+                          </div>
                         </Card.Text>
                       </Card.Body>
                     </Card>

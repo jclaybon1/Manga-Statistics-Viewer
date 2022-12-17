@@ -21,16 +21,10 @@
   .c-manga-search .input-container .search {
     margin-right: 8px;
   }
-  /* .c-manga-search .spinner-container {
-    display: flex;
-    background-color: orange;
 
-    justify-content: center;
-  } */
   .c-manga-search .list-container {
-    /* background-color: orange; */
-
-    width: 100%;
+    margin: auto;
+    width: 50%;
     min-height: 1000px;
     padding: 20px;
     display: flex;
@@ -40,7 +34,6 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    /* color: white; */
   }
   .c-manga-search .list-container .list .list-card {
     max-width: 256px;
@@ -55,12 +48,13 @@
 
   }
   .c-manga-search .list-container .list .list-card .card-title {
-    /* color: black; */
     max-width: inherit;
     padding: 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 1px 2px white;
   }
   
  
@@ -68,43 +62,16 @@
 #searchForm{
   margin-left: auto;
   margin-right: auto;
-  
+
 }
 #noneFound{
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 1px 2px white;
 }
 
 
-/* Style the buttons that are used to open and close the accordion panel
-.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-}
-
-Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover)
-.active, .accordion:hover {
-  background-color: #ccc;
-} */
-
-
-/* body {
-  color: #2c3e50;
-  background: #ecf0f1;
-  padding: 0 1em 1em;
-} */
-h1 {
-  margin: 0;
-  line-height: 2;
-  text-align: center;
-}
 h2 {
   margin: 0 0 0.5em;
   font-weight: normal;
@@ -121,7 +88,6 @@ h4{
 .row .col:last-child {
   margin-left: 1em;
 }
-/* Accordion styles */
 .tabs {
   border-radius: 8px;
   overflow: hidden;
@@ -139,7 +105,6 @@ h4{
   background: #2c3e50;
   font-weight: bold;
   cursor: pointer;
-  /* Icon */
 }
 .tab-label:hover {
   background: #1a252f;
@@ -186,10 +151,8 @@ input:checked ~ .tab-content {
   border: 1px solid rgb(121, 121, 121);
   margin-bottom: 20px;
   border-radius: 15px;
-  /* object-fit: contain; */
 }
 .card-img{
-  /* border-radius: 15px; */
   width: 250px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -198,14 +161,12 @@ input:checked ~ .tab-content {
 .inputLabel{
   width:100%;
 }
-.inputSearch{
- 
-  width: 478px;
 
-}
-.buttonSearch{
-  
-  width: 500px;
 
+.cardGroup{
+  width: 80%;
 }
 
+.cardStatistics{
+  text-shadow: 1px 1px 2px white;
+}

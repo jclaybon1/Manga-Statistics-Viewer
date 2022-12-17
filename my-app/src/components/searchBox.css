@@ -1,0 +1,14 @@
+.mangaTitle {
+  text-shadow: 1px 1px 2px white;
+  font-size: larger;
+}
+.buttonSearch {
+  width: 500px;
+  text-shadow: 1px 1px 2px white;
+  font-size: larger;
+  border: 2px solid grey;
+}
+
+.inputSearch {
+  width: 478px;
+}

@@ -37,9 +37,6 @@
   }
 }
 
-/*  */
-
-/* Style the container element */
 .container {
   display: flex;
   align-items: center;
@@ -47,7 +44,6 @@
   height: 100%;
 }
 
-/* Style the form */
 form {
   display: flex;
   flex-direction: column;
@@ -58,14 +54,15 @@ form {
   border-radius: 10px;
 }
 
-/* Style the form heading */
 h1 {
   margin: 0 0 20px 0;
-  font-size: 20px;
+  font-size: 50px;
   font-weight: bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: 1px 1px 2px white;
+
 }
 
-/* Style the form fields */
 input {
   width: 100%;
   padding: 10px;
@@ -74,7 +71,6 @@ input {
   border-radius: 5px;
 }
 
-/* Style the submit button */
 button {
   padding: 10px 20px;
   border: none;
@@ -83,5 +79,4 @@ button {
   color: #fff;
   font-weight: bold;
   cursor: pointer;
-  /* position: ; */
 }

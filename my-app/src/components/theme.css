@@ -1,8 +1,8 @@
-.dark {
+.light {
     background-color: #333;
     color: #fff;
     }
-.light {
+.dark {
     background-color: #fff;
     color: #333;
 }
@@ -10,5 +10,7 @@
     position: fixed;
     right: 0;
     top: 0;
-    
+    border: 2px solid grey;
+    text-shadow: 1px 1px 2px white;
+
 }
