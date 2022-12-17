@@ -71,7 +71,7 @@ export function Stats({ dataParentToChild }) {
             {mangas.length ? (
               mangas.map((manga) => {
                 return (
-                  <div >
+                  <div>
                     <Card className="card-stuff" border="primary">
                       <Card.Img variant="top" className="card-img" src={manga.url}></Card.Img>
                       <Card.Body>

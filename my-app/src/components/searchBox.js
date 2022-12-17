@@ -24,6 +24,7 @@ export function Search() {
 
           <button className="buttonSearch"><span>Display Statistics</span></button>
         </form>
+        
         <Stats dataParentToChild = {search}/> 
 
       </div>

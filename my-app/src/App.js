@@ -7,6 +7,7 @@ function App(){
     <div className="App">
       <h1>Manga Stat Viewer</h1>
       <Container/>
+      
     </div>
   );
 }
