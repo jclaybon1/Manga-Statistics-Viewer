@@ -1,4 +1,4 @@
-# 10-final-project-individual-jclaybon1
+# Manga Statistics Viewer
 
 This app uses the MangaDex 5.7.5 API to display ratings and followers of manga based on a manga name entered by the user. 
 
